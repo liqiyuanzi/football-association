@@ -1,0 +1,5 @@
+
+insert into table_user_info (userName,userPwd,userType,IDCard,Emial,phoneNumber) values(
+	'{name}','{password}','{identifyCode}','{IDCard}','{mail}','{phoneNumber}'
+	
+)

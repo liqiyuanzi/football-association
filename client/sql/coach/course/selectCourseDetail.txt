@@ -1,0 +1,21 @@
+select 
+C.caption as courseCaption,
+date_format(C.startTime,'%Y-%m-%d %H:%i:%s') as startTime,
+date_format(C.endTime,'%Y-%m-%d %H:%i:%s') as endTime,
+C.isEnd,
+C.place as coursePlace,
+C.phoneNumber as coursePhoneNumber,
+D.caption as organization,
+E.caption as courseLevel,
+C.id as courseID
+from table_user_info as A
+left join  table_user_course as B
+on A.id = B.userID
+left join table_course as C
+on B.courseID = C.id
+left join dict_organization as D
+on C.organization = D.code
+left join dict_level as E
+on C.level = E.code
+where A.id = '{userID}'
+and C.id = '{courseID}'

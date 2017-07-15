@@ -1,0 +1,4 @@
+set @time = now();
+insert into table_user_login (userID,loginTime,loginPlace,loginDevice,loginIP,operate,type) values(
+	'{userID}',@time,'{loginPlace}','{loginDevice}','{loginIP}',"{operate}","{type}"
+)

@@ -1,0 +1,8 @@
+select 
+@num = SUM(D.userID) as notify
+from table_user_info as A
+LEFT JOIN table_user_notify as D
+on A.notify = D.userID
+where A.id = '{userID}'
+and D.noRead = '1';
+call loadUser(@num,'{userID}');

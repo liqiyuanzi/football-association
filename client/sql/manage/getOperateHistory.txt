@@ -1,0 +1,8 @@
+
+select date_format(loginTime,'%Y-%m-%d %H:%i:%s') as loginTime,
+operate,
+loginPlace,
+loginDevice,
+loginIP	
+from  table_user_login  
+where userID='{userID}'

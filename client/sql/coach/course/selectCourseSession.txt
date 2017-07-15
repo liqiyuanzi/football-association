@@ -1,0 +1,18 @@
+select 
+D.caption as sessionCaption,
+D.courseID AS courseID,
+date_format(D.beginTime,'%Y-%m-%d %H:%i:%s') as beginTime,
+date_format(D.endTime,'%Y-%m-%d %H:%i:%s') as endTime,
+D.id as sessionID,
+IFNULL(E.userName,"") as teacherName
+from table_user_info as A
+left join  table_user_course as B
+on A.id = B.userID
+left join table_course as C
+on B.courseID = C.id
+left join table_course_session as D
+on C.id = D.courseID
+left join table_user_info as E
+on D.teacherID = E.id
+where A.id = '{userID}'
+AND D.courseID = '{courseID}'

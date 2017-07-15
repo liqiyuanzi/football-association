@@ -1,0 +1,28 @@
+1git init
+2.git config user.name "someone"
+3.git config user.email "someone@someplace.com"
+4.git add *
+5.git commit -m "some init msg"
+
+
+
+
+
+
+
+
+
+
+上传
+git clone https:
+git add . (.是当前路径下全部)
+git commit -m  "提交信息"  
+git push -u origin master (注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码)
+提交
+git add.
+git commit -m 提交信息
+git push origin master
+删除
+git rm 文件名
+git commit -m "clear"
+git push origin master

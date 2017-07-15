@@ -1,0 +1,2 @@
+select previousHeadPhoto from table_user_info
+where id='{userID}'

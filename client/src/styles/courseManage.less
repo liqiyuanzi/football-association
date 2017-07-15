@@ -1,0 +1,100 @@
+@backgroundColor:#fafdff;
+.course-manage-page{
+	.title{
+		line-height:50px;
+		height:50px;
+		text-indent:20px;
+		border-bottom:1px dashed #ddd;
+		font-size:18px;
+		margin-bottom:20px
+	}
+	.title-h2{
+		line-height:40px;
+		height:40px;
+		font-size:16px;
+		text-indent:30px
+	}
+	.class-content{
+		position:relative;
+		padding:30px 0px;
+		border:1px solid #ddd;
+		.distribution-class{
+			margin-left:208px;
+			button{
+				padding:2px 6px;
+			}
+		}
+		margin-bottom:10px;
+		.delete{
+			font-size:25px;
+			color:#31b0d5;
+			position:absolute;
+			top:0px;
+			right:13px;
+			cursor:pointer;
+			&:hover{
+				color:red
+			}
+		}
+	}
+	width:1200px;
+	margin:auto;
+	min-height:600px;
+	background:@backgroundColor;
+	box-shadow: 2px 2px 2px #ddd;
+	padding:10px 20px 20px 30px;
+	position:relative;
+	.nav-tabs{
+		font-size:16px;
+	}
+	.new-button{
+		position:absolute;
+		right:30px;
+		top:20px
+	}
+	.date-panel{
+		.bootstrap-datetimepicker-overlay{
+			display:none
+		}
+		position:relative;
+		width:220px;
+		.pull-right{
+			right:0!important;
+		}
+		display:inline-block
+	}
+	.form-group{
+		margin-bottom:20px!important;
+		
+		.form-control{
+			display:inline-block;
+			width:180px!important
+		}
+		.control-label{
+			text-align:right;
+			width:80px;
+			margin-left:200px;
+		}
+	}
+	.date-div{
+		margin-left:200px;
+		.control-label{
+			width:80px;
+			text-align:right;
+			line-height:34px;
+			vertical-align:top;
+		}
+	}
+	.connect-span{
+		line-height:34px;
+		vertical-align:top;
+		margin-left:94px;
+		margin-right:94px;
+	}
+	.add-button{
+		margin-left:208px;
+		button{
+			padding:4px 8px;
+		}
+	}
+}

@@ -1,0 +1,171 @@
+﻿@backgroundColor : #fafdff;
+@borderColor:#aaa;
+@hoverColor:#E6E6C8;
+.course-panel{
+	color:#111;
+	width:780px;
+	background:@backgroundColor;
+	margin-right:20px;
+	float:left;
+	height:682px;
+	box-shadow: 2px 2px 2px #ddd;
+	.list-head{
+		height:60px;
+		border-bottom:1px dashed @borderColor;
+		line-height:60px;
+		font-size:18px;
+		text-indent:20px
+	}
+	.page-ul{
+		li{
+			position:relative;
+			.icon{
+				position:absolute;
+				right:20px;
+				top:0;
+				color:#111!important;
+				font-size:22px!important;
+				line-height:70px;
+			}
+			line-height:32px;
+			font-size:14px;
+			margin:0 20px;
+			padding-left:20px;
+			border-bottom:1px solid #ddd;
+			cursor:pointer;
+			&:hover{
+				background:@hoverColor
+			}
+			.title{
+				font-weight:700;
+				font-size:14px;
+			}
+			.detail{
+				.status-class{
+					font-size:12px;
+					color:#fff;
+					padding:2px 3px;
+					border-radius:5px;
+					margin-right:20px;
+				}
+				.end-class{
+					background:#999;
+				}
+				.in-class{
+					background:#F99200;
+				}
+				.before-class{
+					background:#5bc0de;
+				}
+			}
+		}
+	}
+	.page-div{
+		text-align:center;
+	}
+}
+.home-slide{
+	width:400px;
+	float:left;
+	.notice-panel{
+		margin-bottom:20px;
+		background:@backgroundColor;
+		height:330px;
+		box-shadow: 2px 2px 2px #ddd;
+	}
+	.calendar-panel{
+		background:@backgroundColor;
+		height:330px;
+		box-shadow: 2px 2px 2px #ddd;
+	}
+}
+.course-page{
+	background:@backgroundColor;
+	margin-bottom:30px;
+	padding-bottom:30px;
+	box-shadow: 2px 2px 2px #ddd;
+	.clear{
+		margin-bottom:8px;
+	}
+	.title{
+		height:60px;
+		line-height:60px;
+		text-indent:20px;
+		margin:0 10px;
+		font-size:18px;
+		border-bottom:1px dashed @borderColor;
+	}
+	.title-h2{
+		height:50px;
+		line-height:50px;
+		text-indent:30px;
+		.button{
+			float:right;
+			margin:12px 20px 0 0
+		}
+		span{
+			font-weight:bold;
+			font-size:15px;
+		}
+		padding-bottom:10px
+	}
+	.content{
+		padding:2px 30px;
+		.title{
+			position:relative;
+			.icon{
+				margin-right:10px;
+			}
+			font-size:14px;
+			height:40px;
+			line-height:40px;
+			background:#ccdcff;
+			border-radius:5px;
+			text-indent:20px;
+			cursor:pointer;
+			border:none;
+			&:hover{
+				background:@hoverColor
+			}
+			.right{
+				float:right;
+				margin-right:20px;
+				font-size:12px;
+			}
+			.center{
+				position:absolute;
+				font-size:12px;
+				left:40%;
+			}
+		}
+		.detail-panel{
+			display:none;
+			margin:0 20px;
+			background:@backgroundColor;
+			li{
+				text-indent:20px;
+				height:34px;
+				line-height:34px;
+				font-size:14px;
+			}
+		}
+		.no-data{
+			min-height:100px;
+			margin-top:100px;
+			text-align:center;
+		}
+		.head{
+			height:50px;
+			line-height:50px;
+			font-size:15px;
+			font-weight:bold
+		}
+		.detail{
+			padding-left:10px;
+			li{
+				height:30px;
+				line-height:30px
+			}
+		}
+	}
+}

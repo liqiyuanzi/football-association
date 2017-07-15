@@ -1,0 +1,11 @@
+set @operateStr = "&&修改个人信息&&";
+UPDATE table_user_info
+set userName = '{name}',
+gender ='{gender}',
+userType ='{userType}',
+IDCard ='{IDCard}',
+Emial ='{mail}',
+provinceCode ='{provinceCode}',
+cityCode ='{cityCode}',
+userSign ='{userSign}'
+where id='{userID}'

@@ -1,0 +1,3 @@
+UPDATE table_user_info
+set previousHeadPhoto = '{previousHeadPhoto}'
+where id='{userID}'

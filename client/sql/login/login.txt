@@ -1,0 +1,1 @@
+select * from table_user_info where userPwd = '{password}' and phoneNumber='{phoneNumber}'

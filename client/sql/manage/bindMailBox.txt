@@ -1,0 +1,4 @@
+UPDATE table_user_info
+set Emial = '{Emial}',
+bindMailState = 1
+where id='{userID}';

@@ -1,0 +1,5 @@
+set @operateStr = "&&更新头像&&";
+UPDATE table_user_info
+set headPhoto = '{headPhoto}',
+previousHeadPhoto = ''
+where id='{userID}';
