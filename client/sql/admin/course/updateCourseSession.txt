@@ -1,0 +1,4 @@
+update table_course_session 
+set caption = '{sessionName}',
+teacherID = '{teacherID}'
+where id = '{sessionID}'

@@ -1,0 +1,17 @@
+select 
+date_format(A.startTime,'%Y-%m-%d %H:%i:%s') as startTime,
+date_format(A.endTime,'%Y-%m-%d %H:%i:%s') as endTime,
+A.place as place,
+A.id as courseID,
+A.organization as organizationCode,
+A.caption as caption,
+A.level as levelCode,
+A.phoneNumber as phoneNumber,
+B.caption as organization,
+C.caption as level
+from table_course as A
+left join dict_organization as B
+ON A.organization = B.code
+left join dict_level as C
+on A.level = C.code
+where A.id = '{courseID}'

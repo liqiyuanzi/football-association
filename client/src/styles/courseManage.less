@@ -14,35 +14,13 @@
 		font-size:16px;
 		text-indent:30px
 	}
-	.class-content{
-		position:relative;
-		padding:30px 0px;
-		border:1px solid #ddd;
-		.distribution-class{
-			margin-left:208px;
-			button{
-				padding:2px 6px;
-			}
-		}
-		margin-bottom:10px;
-		.delete{
-			font-size:25px;
-			color:#31b0d5;
-			position:absolute;
-			top:0px;
-			right:13px;
-			cursor:pointer;
-			&:hover{
-				color:red
-			}
-		}
-	}
 	width:1200px;
 	margin:auto;
+	margin-bottom:30px;
 	min-height:600px;
 	background:@backgroundColor;
 	box-shadow: 2px 2px 2px #ddd;
-	padding:10px 20px 20px 30px;
+	padding:20px;
 	position:relative;
 	.nav-tabs{
 		font-size:16px;
@@ -50,51 +28,250 @@
 	.new-button{
 		position:absolute;
 		right:30px;
-		top:20px
+		top:24px
 	}
-	.date-panel{
-		.bootstrap-datetimepicker-overlay{
-			display:none
+	.course-edit-panel{
+		.no-data{
+			height:150px;
+			line-height:150px;
+			text-align:center;
+			border:1px solid #ddd
 		}
-		position:relative;
-		width:220px;
-		.pull-right{
-			right:0!important;
+		.form-inline{
+			margin:20px;
+			.form-group{
+				margin-right:100px;
+				input,select{
+					width:200px
+				}
+				label{
+					width:200px;
+					text-align:right
+				}
+			}
+			.error-div{
+				height:24px;
+				line-height:24px;
+				color:red;
+				text-indent:210px;
+			}
+			
+			.date-div{
+				.date-panel{
+					input{
+						width:200px;
+					}
+					display:inline-block;
+				}
+				
+				input{
+						width:200px;
+					}
+				.connect-span{
+					margin-left:142px;
+					margin-right:143px;
+				}
+				label{
+					width:200px;
+					text-align:right
+				}
+			}
+			.title-h2{
+				margin-top:10px;
+			}
+			.class-content{
+				.form-group{
+					margin-bottom:20px
+				}
+				padding-top:20px;
+				margin-bottom:10px;
+				border:1px solid #ddd;
+				position:relative;
+				.delete{
+					cursor:pointer;
+					font-size:24px;
+					position:absolute;
+					top:0px;
+					right:10px;
+					color:#31b0d5;
+					&:hover{
+						color:red
+					}
+				}
+				.distribution-class{
+					margin:10px 0 10px 128px;
+					.distribution-button{
+						padding:4px 8px;
+						font-size:12px;
+					}
+				}
+			}
 		}
-		display:inline-block
+		.save-button{
+			text-align:center;
+			margin-top:20px;
+		}
 	}
-	.form-group{
-		margin-bottom:20px!important;
+}
+.new-course-modal{
+	margin:20px;
+	.error-div{
+		margin-left:88px;
+		color:red;
+		height:24px;
+		line-height:24px;
+	}
+	input,select{
+		width:180px!important;
+	}
+	label{
+			width:80px;
+			text-align:right;
+		}
 		
-		.form-control{
-			display:inline-block;
-			width:180px!important
-		}
-		.control-label{
-			text-align:right;
-			width:80px;
-			margin-left:200px;
-		}
-	}
-	.date-div{
-		margin-left:200px;
-		.control-label{
-			width:80px;
-			text-align:right;
-			line-height:34px;
-			vertical-align:top;
-		}
+	.date-panel{
+		display:inline-block;
 	}
 	.connect-span{
-		line-height:34px;
-		vertical-align:top;
-		margin-left:94px;
-		margin-right:94px;
+		margin-left:34px;
+		margin-right:34px;
 	}
-	.add-button{
-		margin-left:208px;
+}
+
+.course-edit-info{
+
+	margin:10px 20px;
+	.form-group{
+		margin-bottom:0;
+	}
+	.error-div{
+		height:22px;
+		line-height:22px;
+	}
+	.error{
+		margin-left:74px;
+		color:red;
+	}
+	.class-name{
+			width:180px;
+		}
+		input{
+			width:180px!important;
+		}
+		.class-time{
+			width:166px;
+			position:relative
+		}
+		.class-operate{
+			width:60px;
+			text-align:right!important
+		}
+	.form-group{
+		display:inline-block;
+		margin-right:12px;
+	}
+	input,select{
+		display:inline-block;
+		width:200px;
+	}
+	.distribution-button{
+		vertical-align:2px;
+		padding:5px 10px;
+		font-size:12px;
+		line-height:20px;
+	}
+	.course-class{
+		background:#31b0d5;
+		li{
+			float:left;
+			text-align:center;
+			line-height:30px;
+			height:30px;
+			color:#fff;
+			margin-right:20px		
+		}
+		
+	}
+	.class-content{
+		.date-panel{
+			position:absolute
+		}
+		margin:0px 10px;
+		.form-group{
+			vertical-align:top
+		}
+		input{
+			height:30px;
+			line-height:30px;
+		}
 		button{
-			padding:4px 8px;
+			padding:4px 10px;
+			font-size:12px;
+			&:hover{
+				background:#f52e2e;
+				border-color:red
+			}
+		}
+		.error{
+			margin-left:0px;
+			color:red;
 		}
 	}
+}
+.add-course-modal{
+	.modal-content,.modal-dialog{
+		width:740px;
+	}
+}
+.table-div{
+	.class-zebra{
+		background:#ececec
+	}
+	.operate-button{
+		font-size:12px;
+		padding:3px 6px;
+		margin-right:4px;
+	}
+	margin:30px 10px 0px 10px;
+	table{
+		width:100%;
+		.course-number{
+			width:5%;
+		}
+		.course-content{
+			width:31%;
+		}
+		.course-place{
+			width:18%;
+		}
+		.course-organization{
+			width:18%
+		}
+		.course-level{
+			width:4%
+		}
+		.course-phone{
+			width:10%
+		}
+		.course-operate{
+			width:14%;
+		}
+		th{
+			background:#2ca7d0;
+			line-height:30px;
+			color:#fff;
+			font-size:14px;
+		}
+		tr{
+			line-height:46px;
+		}
+		td,th{
+			text-align:center
+		}
+	}
+	.page-div{
+		text-align:center;
+		margin-top:10px;
+	}
+	
 }

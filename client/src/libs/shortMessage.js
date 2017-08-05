@@ -4,7 +4,7 @@
 */
 //C42581102
 var _baseUri = "http://106.ihuyi.com/webservice/sms.php?method=Submit&account=";
-var identifying = function(mobile,identifyingCode,account="", password="b9cfe8e1a02c878a5fa1073589060747") {
+var identifying = function(mobile,identifyingCode,account="C42581102", password="b9cfe8e1a02c878a5fa1073589060747") {
     this.account = account;
     this.password = password;
 	this.mobile = mobile

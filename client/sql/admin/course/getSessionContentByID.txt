@@ -1,0 +1,9 @@
+select 
+A.caption as sessionContentCaption,
+A.courseSessionID AS sessionID
+from table_session_content as A
+left join  table_course_session as B
+on A.courseSessionID = B.id
+left join table_course as C
+on B.courseID = C.id
+where B.courseID = '{courseID}'

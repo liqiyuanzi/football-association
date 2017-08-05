@@ -1,7 +1,9 @@
 ﻿/*校验模块*/
 import checkIDCard from "libs/checkIDCard"
+import * as actions from 'actions/action';
 import * as registerActions from 'actions/register';
 import * as manageActions from 'actions/manage';
+import * as courseActions from 'actions/course'
 
 let checkModule = {};
 /*********************************************************校验注册信息模块*****************************************************/
@@ -396,10 +398,312 @@ checkBindMailBoxInfo.prototype.checkMailBox = function(ev){
 		registerActions.checkMail(false);
 	}
 }
+/****************************************************校验新建培训课程********************************************/
+let checkNewCourseInfo = function(){
+	this.property = {courseName:'',courseLevel:"",courseOrganization : "",startTime:"",endTime:"",coursePlace:"",coursePhoneNumber:""}		
+}
+let checkNewCourse= new checkNewCourseInfo();
+checkNewCourseInfo.prototype.checkCourseName = function(obj){
+	var value = obj.target ? obj.target.value :obj.val();
+	if(value){
+		checkNewCourse.property.courseName = value;
+		courseActions.setCheckCourseNameState(true);
+	}else{
+		checkNewCourse.property.courseName = "";
+		courseActions.setCheckCourseNameState(false);
+	}
+}
+checkNewCourseInfo.prototype.checkCoursePlace = function(obj){
+	var value = obj.target ? obj.target.value :obj.val();
+	if(value){
+		checkNewCourse.property.coursePlace = value;
+		courseActions.setCheckCoursePlaceState(true);
+	}else{
+		checkNewCourse.property.coursePlace = "";
+		courseActions.setCheckCoursePlaceState(false);
+	}
+}
+checkNewCourseInfo.prototype.checkCoursePhoneNumber = function(obj){
+	var value = obj.target ? obj.target.value :obj.val();
+	let state =  /^1[3,4,5,7,8]{1}\d{9}$/.test(value);
+	if(state){
+		checkNewCourse.property.coursePhoneNumber = value;
+		courseActions.setCheckCoursePhoneNumberState(true);
+	}else{
+		checkNewCourse.property.coursePhoneNumber = "";
+		courseActions.setCheckCoursePhoneNumberState(false);
+	}
+}
+checkNewCourseInfo.prototype.saveNewCourseInfo = function(callback){
+	this.property.courseLevel = $("#courseLevel").val();
+	this.property.courseOrganization = $("#courseOrganization").val();
+	this.property.startTime = $(".date-div .form-control").eq(0).val();
+	this.property.endTime = $(".date-div .form-control").eq(1).val();
+	
+	let _registerFlag = true;
+	/*符合提交条件*/
+	for(let i in this.property){
+		if(!this.property[i]){
+			_registerFlag = false;
+		}
+	}
+	if(_registerFlag){
+		actions.getSqlData( 
+			[{ Key: "NewCourse", Path: "admin/course/insertCourse.txt" }],
+			this.property,
+			"",
+			(data)=>{
+				callback('success');
+			}
+		);
+	}	
+}
+checkNewCourseInfo.prototype.saveEditCourseInfo = function(callback){
+	var courseID = window.location.search ? window.location.search.split("=")[1] : ""; 
+	
+	this.__proto__.checkCourseName($("#courseCaption"));
+	this.__proto__.checkCoursePlace($("#coursePlace"));
+	this.__proto__.checkCoursePhoneNumber($("#coursePhoneNumber"));
+	this.property.courseLevel = $("#courseLevel").val();
+	this.property.courseOrganization = $("#courseOrganization").val();
+	this.property.startTime = $(".date-panel .form-control").eq(0).val();
+	this.property.endTime = $(".date-panel .form-control").eq(1).val();
+	this.property.courseID = courseID;
+	
+	let _registerFlag = true;
+	/*符合提交条件*/
+	for(let i in this.property){
+		if(!this.property[i]){
+			_registerFlag = false;
+		}
+	}
+	if(_registerFlag){
+		actions.getSqlData( 
+			[{ Key: "UpdateCourse", Path: "admin/course/updateCourse.txt" }],
+			this.property,
+			"",
+			(data)=>{
+				if(data.UpdateCourse){
+					callback('success');
+				}else{
+					callback('error');	
+				}
+			}
+		);
+	}	
+}
+
+/**************************************************校验添加课程信息********************************************/
+let checkAddCourseInfo = function(){
+	this.property = {courseID:"",sessionName: '',teacherID:"",sqlStr : ""}		
+}
+let checkAddCourse= new checkAddCourseInfo();
+checkAddCourseInfo.prototype.saveAddCourseInfo = function(courseID,callback){
+	let canSaveState = true,
+		courseClassName = [],
+		contentArray = [],
+		beginTimeArray = [],
+		endTimeArray = [],
+		courseEndTimeStr ="",
+		courseBeginTimeStr = "",
+		courseEndTime = "",
+		courseBeginTime = "",
+		courseClassEle = $(".class-content .session-content");
+	
+		this.property.courseID = courseID;
+		this.property.sessionName = $("#sessionName").val();
+		this.property.teacherID = $("#teacherCode").val();
+		
+	if(!this.property.sessionName){
+		courseActions.setCheckSessionNameState(false);
+	}else{
+		courseActions.setCheckSessionNameState(true);
+	}
+	for(var i = 0;i < courseClassEle.length;i ++){
+		if(!courseClassEle.eq(i).val()){
+			courseClassName[i] = true;
+			/*置为不可提交状态*/
+			canSaveState = false;
+		}else{
+			courseClassName[i] = false;
+		}
+	}
+	courseActions.setCheckClassNameState(courseClassName);
+	if(canSaveState && this.property.sessionName){
+		
+		for(var i = 0;i < courseClassEle.length;i ++){
+			contentArray.push(
+				$(".class-content .session-content").eq(i).val()
+			);
+			beginTimeArray.push(
+				$(".begin-time input").eq(i).val()
+			);
+			endTimeArray.push(
+				$(".end-time input").eq(i).val()
+			)
+		}
+				
+		actions.getSqlData(
+			[{ Key: "sessionID", Path: "admin/course/insertCourseSession.txt" }],
+			this.property,
+			"",
+			(data)=>{
+				if(data.sessionID){
+					/*获得sessionID*/
+					let timeArray = beginTimeArray.concat(endTimeArray);
+					let sessionID = data.sessionID[1][0].sessionID;
+					/*获取开始结束时间*/
+					courseEndTimeStr = courseBeginTimeStr = new Date(timeArray[0]).getTime();
+					courseEndTime = courseBeginTime = timeArray[0];
+					for(var i = 0;i < timeArray.length;i ++){
+						if(courseEndTimeStr < new Date(timeArray[i]).getTime()){
+							courseEndTimeStr = new Date(timeArray[i]).getTime();
+							courseEndTime = timeArray[i];
+						}
+						if(courseBeginTimeStr > new Date(timeArray[i]).getTime()){
+							courseBeginTimeStr = new Date(timeArray[i]).getTime();
+							courseBeginTime = timeArray[i];
+						}
+					}
+					
+					var sqlStr = "";
+					for(var i = 0;i < courseClassEle.length;i ++){
+						sqlStr += "@@"+sessionID+"%%"+contentArray[i]+"%%"+beginTimeArray[i]+"%%"+endTimeArray[i]+"&&,"
+					}
+					/*
+						@@替换为(,
+						&&替换为)
+						%%替换为,
+					*/
+					sqlStr = sqlStr.substring(0,sqlStr.length - 1);
+					sqlStr = sqlStr.replace(new RegExp('&&',"g"),'\'\)').replace(new RegExp('@@',"g"),'\(\'').replace(new RegExp('%%',"g"),'\',\'');
+
+					actions.getSqlData(
+						[{ Key: "sessionContent", Path: "admin/course/insertCourseSessionContent.txt" }],
+						{sqlStr:sqlStr,"beginTime":courseBeginTime,"endTime":courseEndTime,"sessionID":sessionID},
+						"",
+						(data)=>{
+							if(data.sessionContent){
+								callback("success");
+							}else{
+								callback("error");
+							}
+						}
+					);
+				}else{
+					callback("error");
+				}
+			}
+		);
+	}
+}
+checkAddCourseInfo.prototype.saveEditSessionInfo = function(sessionID,courseID,callback){
+	let canSaveState = true,
+		courseClassName = [],
+		contentArray = [],
+		beginTimeArray = [],
+		endTimeArray = [],
+		courseEndTimeStr ="",
+		courseBeginTimeStr = "",
+		courseEndTime = "",
+		courseBeginTime = "",
+		courseClassEle = $(".class-content .session-content");
+	
+		this.property.courseID = courseID;
+		this.property.sessionID = sessionID;
+		this.property.sessionName = $("#sessionName").val();
+		this.property.teacherID = $("#teacherCode").val();
+		
+	if(!this.property.sessionName){
+		courseActions.setCheckSessionNameState(false);
+	}else{
+		courseActions.setCheckSessionNameState(true);
+	}
+	for(var i = 0;i < courseClassEle.length;i ++){
+		if(!courseClassEle.eq(i).val()){
+			courseClassName[i] = true;
+			/*置为不可提交状态*/
+			canSaveState = false;
+		}else{
+			courseClassName[i] = false;
+		}
+	}
+	courseActions.setCheckClassNameState(courseClassName);
+	if(canSaveState && this.property.sessionName){
+		
+		for(var i = 0;i < courseClassEle.length;i ++){
+			contentArray.push(
+				$(".class-content .session-content").eq(i).val()
+			);
+			beginTimeArray.push(
+				$(".begin-time input").eq(i).val()
+			);
+			endTimeArray.push(
+				$(".end-time input").eq(i).val()
+			)
+		}
+				
+		actions.getSqlData(
+			[{ Key: "sessionID", Path: "admin/course/updateCourseSession.txt" }],
+			this.property,
+			"",
+			(data)=>{
+				if(data.sessionID){
+					/*获得sessionID*/
+					let timeArray = beginTimeArray.concat(endTimeArray);
+					/*获取开始结束时间*/
+					courseEndTimeStr = courseBeginTimeStr = new Date(timeArray[0]).getTime();
+					courseEndTime = courseBeginTime = timeArray[0];
+					for(var i = 0;i < timeArray.length;i ++){
+						if(courseEndTimeStr < new Date(timeArray[i]).getTime()){
+							courseEndTimeStr = new Date(timeArray[i]).getTime();
+							courseEndTime = timeArray[i];
+						}
+						if(courseBeginTimeStr > new Date(timeArray[i]).getTime()){
+							courseBeginTimeStr = new Date(timeArray[i]).getTime();
+							courseBeginTime = timeArray[i];
+						}
+					}
+					
+					var sqlStr = "";
+					for(var i = 0;i < courseClassEle.length;i ++){
+						sqlStr += "@@"+sessionID+"%%"+contentArray[i]+"%%"+beginTimeArray[i]+"%%"+endTimeArray[i]+"&&,"
+					}
+					/*
+						@@替换为(,
+						&&替换为)
+						%%替换为,
+					*/
+					sqlStr = sqlStr.substring(0,sqlStr.length - 1);
+					sqlStr = sqlStr.replace(new RegExp('&&',"g"),'\'\)').replace(new RegExp('@@',"g"),'\(\'').replace(new RegExp('%%',"g"),'\',\'');
+
+					actions.getSqlData(
+						[{ Key: "sessionContent", Path: "admin/course/insertCourseSessionContent.txt" }],
+						{sqlStr:sqlStr,"beginTime":courseBeginTime,"endTime":courseEndTime,"sessionID":sessionID},
+						"",
+						(data)=>{
+							if(data.sessionContent){
+								callback("success");
+							}else{
+								callback("error");
+							}
+						}
+					);
+				}else{
+					callback("error");
+				}
+			}
+		);
+	}
+}
+
 
 checkModule.checkRegisterInfo = checkRegister
 checkModule.checkManageInfo = checkManage
 checkModule.checkChangePassword = checkChangePassword
 checkModule.checkChangePhoneNumber = checkChangePhoneNumber
 checkModule.checkBindMailBoxInfo = checkBindMailBox
+checkModule.checkNewCourseInfo = checkNewCourse
+checkModule.checkAddCourseInfo = checkAddCourse
+
 module.exports = checkModule;

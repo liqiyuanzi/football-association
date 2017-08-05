@@ -2,8 +2,8 @@
 import React , { Component } from 'react'
 import ReactDOM from 'react-dom';
 import {Modal,Button,Form,FormGroup,ControlLabel,FormControl}  from 'react-bootstrap';
-import checkInfo from '../../codes/checkInfo'
-import Config from "../../codes/config"
+import checkInfo from 'codes/checkInfo'
+import Config from "codes/config"
 
 class BindMailBox extends Component {
 	setModalState =()=>{

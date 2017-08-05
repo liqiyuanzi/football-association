@@ -7,7 +7,11 @@ import courseManage from 'styles/courseManage.less'
 
 class CourseManagement extends Component {
 	componentWillMount = () =>{
-		
+		actions.getSqlData(
+			[{ Key: "GetTeacher", Path: "admin/course/selectTeacher.txt" }],
+			{'userID':common.getCookie().userID},
+			"reduceAllTeacher"
+		);
 	}
 	render(){
 		return (

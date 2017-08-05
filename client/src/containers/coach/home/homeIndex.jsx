@@ -4,9 +4,9 @@ import { Router } from 'react-router'
 import { connect } from 'react-redux'
 import common from 'codes/common'
 import homeCss from 'styles/home.less'
-import Course from 'components/home/tplCourse.jsx'
-import Notice from 'components/home/tplNotice.jsx'
-import Calendar from 'components/home/tplCalendar.jsx'
+import Course from 'components/coach/tplCourse.jsx'
+import Notice from 'components/coach/tplNotice.jsx'
+import Calendar from 'components/coach/tplCalendar.jsx'
 
 class HomeIndex extends Component {
 	componentWillMount = () =>{

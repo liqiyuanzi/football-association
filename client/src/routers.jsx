@@ -19,7 +19,7 @@ import CourseDetail from "containers/coach/home/courseDetail"
 import AdminHomeIndex from "containers/admin/home/adminHomeIndex"
 import CourseManagement from "containers/admin/courseManagement/courseManagement"
 import Course from "containers/admin/courseManagement/course"
-import NewCourse from "containers/admin/courseManagement/newCourse"
+import EditCourse from "containers/admin/courseManagement/editCourse"
 /*teacher用户*/
 import TeacherHomeIndex from "containers/teacher/home/teacherHomeIndex"
 /*用户信息管理*/
@@ -51,7 +51,7 @@ const router =  <Route path="nav"  component={Nav}>
 					<Route path="courseManagement"  component={CourseManagement}>
 						<IndexRedirect to="course" />
 						<Route path="course" component={Course}/>
-						<Route path="newCourse" component={NewCourse}/>
+						<Route path="editCourse" component={EditCourse}/>
 					</Route>					
 				</Route>
 
@@ -78,8 +78,8 @@ class Routers extends React.Component {
 						<Route path="thirdStep" component={ThirdStep}/>
 					</Route>
 					{
-					router
-				}
+						router
+					}
 				</Route>	
 				
 			</Router>

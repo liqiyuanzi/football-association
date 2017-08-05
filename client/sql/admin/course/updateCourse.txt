@@ -1,0 +1,10 @@
+set @operateStr = "&&修改课程信息&&";
+update table_course 
+set startTime = '{startTime}',
+endTime = '{endTime}',
+caption = '{courseName}',
+organization = '{courseOrganization}',
+level = '{courseLevel}',
+place = '{coursePlace}',
+phoneNumber = '{coursePhoneNumber}'
+where id = '{courseID}'

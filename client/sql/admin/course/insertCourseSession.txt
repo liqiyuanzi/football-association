@@ -1,0 +1,5 @@
+insert into table_course_session (courseID,caption,teacherID) values(
+	'{courseID}','{sessionName}','{teacherID}'
+);
+select max(id) as sessionID
+from table_course_session ;

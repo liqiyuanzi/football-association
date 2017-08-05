@@ -22,16 +22,21 @@ import {
 	CHECK_IDENTIFY_CODE,
 	GET_OPERATE_HISTORY,/*获取操作纪录*/
 	SEND_MAIL_STATE,/*发送邮件状态*/
+	CONFIRM_MODAL_STATE,/*确定弹出框状态*/
 } from 'actions/actiontype';
 import Config from "codes/config";
 /*初始数据*/
 const initState = {
+	/*确定提示框*/
+	confirmModalState:false,
 	userInfo:"",
 	userIndex:"",
 	City:"",
 	Province:"",
 	Gender:"",
 	Type:"",
+	Level:"",
+	Organization:"",
 	provinceCode:"",
 	checkNameState:true,
 	checkIDCardState:true,
@@ -63,6 +68,10 @@ const userInfo = (state=initState,action) => {
 				userIndex:action.data ? action.data.UserInfo[1][0].userType : "",
 				provinceCode:action.data ? action.data.UserInfo[1][0].provinceCode : ""
 			});
+		case CONFIRM_MODAL_STATE:
+			return Object.assign({}, state, {
+				confirmModalState:action.data
+			});		
 		case SET_USER_EDIT_MODAL_STATE:
 			return Object.assign({}, state, {
 				modalState:action.data
@@ -72,7 +81,9 @@ const userInfo = (state=initState,action) => {
 				City:action.data ? action.data.City :"",
 				Province:action.data ? action.data.Province :"",
 				Gender:action.data ? action.data.Gender :"",
-				Type:action.data ? action.data.Type :""
+				Type:action.data ? action.data.Type :"",
+				Level:action.data ? action.data.Level :"",
+				Organization:action.data ? action.data.Organization :""
 			});
 		case SET_PROVINCE_CODE:
 			return Object.assign({}, state, {

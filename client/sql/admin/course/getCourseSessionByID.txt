@@ -1,0 +1,12 @@
+select 
+A.caption as sessionCaption,
+A.teacherID as teacherID,
+A.courseID AS courseID,
+date_format(A.beginTime,'%Y-%m-%d %H:%i:%s') as beginTime,
+date_format(A.endTime,'%Y-%m-%d %H:%i:%s') as endTime,
+IFNULL(B.userName,"") as teacherName,
+A.id as sessionID
+from table_course_session as A
+left join table_user_info as B 
+on A.teacherID = B.id
+where A.courseID = '{courseID}'

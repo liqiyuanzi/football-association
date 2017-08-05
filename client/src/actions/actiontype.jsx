@@ -15,6 +15,8 @@ export const CHECK_IDENTIFY_INFO = 'CHECK_IDENTIFY_INFO';
 export const GET_USER_INFO = 'GET_USER_INFO';
 /*设置用户模态框*/
 export const SET_USER_EDIT_MODAL_STATE = 'SET_USER_EDIT_MODAL_STATE';
+/*确定弹出框*/
+export const CONFIRM_MODAL_STATE = 'CONFIRM_MODAL_STATE';
 /*设置字典表*/
 export const GET_DICT_DATA = 'GET_DICT_DATA';
 /*设置省份*/
@@ -56,3 +58,39 @@ export const SEND_MAIL_STATE = 'SEND_MAIL_STATE'
 export const GET_USER_COURSE = 'GET_USER_COURSE'
 export const GET_USER_COURSE_DETAIL = 'GET_USER_COURSE_DETAIL'
 export const SET_COURSE_ID = 'SET_COURSE_ID'
+
+/*admin操作*/
+/*新建课程获取教师信息*/
+export const GET_ALL_TEACHER = 'GET_ALL_TEACHER'
+/*新建培训模态框*/
+export const SET_NEW_COURSE_MODAL_STATE = 'SET_NEW_COURSE_MODAL_STATE'
+/*设置机构代码显示不同教师*/
+export const SET_ORGANIZATION_CODE ='SET_ORGANIZATION_CODE'
+/*新建课程设置课程数目*/
+export const ADD_CLASS_LENGTH = 'ADD_CLASS_LENGTH'
+export const DELETE_CLASS_LENGTH = 'DELETE_CLASS_LENGTH'
+
+/*设置编辑模态框显示隐藏*/
+export const SET_EDIT_COURSE_MODAL = 'SET_EDIT_COURSE_MODAL'
+/*设置新建课程模态框显示隐藏*/
+export const SET_ADD_COURSE_STATE = 'SET_ADD_COURSE_STATE'
+/*校验添加课程内容*/
+export const CHECK_COURSE_NAME = 'CHECK_COURSE_NAME'
+export const CHECK_COURSE_PLACE = 'CHECK_COURSE_PLACE'
+export const CHECK_COURSE_PHONENUMBER = 'CHECK_COURSE_PHONENUMBER'
+/*获取admin课程信息*/
+export const GET_ADMIN_COURSE = 'GET_ADMIN_COURSE'
+/*编辑课程信息*/
+export const EDIT_COURSE_INFO = 'EDIT_COURSE_INFO'
+/*编辑章节信息*/
+export const EDIT_SESSION_INFO = 'EDIT_SESSION_INFO'
+/*编辑章节信息模态框*/
+export const SET_EDIT_SESSION_MODAL = 'SET_EDIT_SESSION_MODAL'
+
+export const CHECK_SESSION_NAME = 'CHECK_SESSION_NAME'
+export const CHECK_CLASS_NAME = 'CHECK_CLASS_NAME'
+
+
+
+
+

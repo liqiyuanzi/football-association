@@ -1,0 +1,7 @@
+delete from table_session_content where courseSessionID = '{sessionID}';
+insert into table_session_content (courseSessionID,caption,beginTime,endTime) 
+values {sqlStr};
+update table_course_session 
+set beginTime = '{beginTime}',
+endTime = '{endTime}'
+where id = '{sessionID}'

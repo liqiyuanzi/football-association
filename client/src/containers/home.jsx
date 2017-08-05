@@ -6,6 +6,14 @@ import common from "codes/common"
 
 class Home extends Component {
 	componentWillMount = () =>{
+		this.changeRouter();
+	}
+	componentWillReceiveProps = () =>{
+		if(this.context.router.location.pathname == "/nav/home"){
+			this.changeRouter();
+		}
+	}
+	changeRouter = () =>{
 		actions.getSqlData([{ Key: "UserInfo", Path: "user/user.txt" }],{'userID':common.getCookie().userID},"reduceUserInfo",(res)=>{
 			let type= res.UserInfo ? res.UserInfo[1][0].userType : "";
 			switch(type){

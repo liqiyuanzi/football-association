@@ -1,0 +1,6 @@
+select 
+caption as sessionContentCaption,
+date_format(beginTime,'%Y-%m-%d %H:%i:%s') as beginTime,
+date_format(endTime,'%Y-%m-%d %H:%i:%s') as endTime
+from table_session_content
+where courseSessionID='{sessionID}'

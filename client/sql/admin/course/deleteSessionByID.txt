@@ -1,0 +1,4 @@
+delete from table_course_session
+where id = '{sessionID}';
+delete from table_session_content
+where courseSessionID = '{sessionID}'

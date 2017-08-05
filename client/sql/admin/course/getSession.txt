@@ -1,0 +1,8 @@
+select
+id as sessionID, 
+caption as sessionCaption,
+teacherID as teacherID,
+date_format(beginTime,'%Y-%m-%d %H:%i:%s') as beginTime,
+date_format(endTime,'%Y-%m-%d %H:%i:%s') as endTime
+from table_course_session
+where id='{sessionID}'

@@ -2,13 +2,19 @@
 import {Pagination}  from 'react-bootstrap';
 class PaginationAdvanced extends Component {
 	constructor(){
-	  super();
-	  let hashIndex = Number(window.location.hash.substring(1,window.location.hash.length)) 
-					? Number(window.location.hash.substring(1,window.location.hash.length))
-					: 1
-	  this.state={
-		activePage: hashIndex
-	  }
+		super();
+		this.calcPage();
+	}
+	componentWillReceiveProps = () =>{
+		this.calcPage();
+	}
+	calcPage = () =>{
+		let hashIndex = Number(window.location.hash.substring(1,window.location.hash.length)) 
+				? Number(window.location.hash.substring(1,window.location.hash.length))
+				: 1
+		this.state={
+			activePage: hashIndex
+		}
 	}
 	loadPage = (eventKey) =>{
 		this.setState({

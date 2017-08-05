@@ -10,7 +10,12 @@ import {
 	GET_OPERATE_HISTORY,/*获取操作纪录*/
 	GET_USER_COURSE,/*获取用户已报名课程信息*/
 	GET_USER_COURSE_DETAIL,/*获取课程信息详情*/
+	GET_ADMIN_COURSE,/*获取admin课程信息*/
 	SET_COURSE_ID,/*设置课程id*/
+	GET_ALL_TEACHER,/*admin获取全部教师*/
+	EDIT_COURSE_INFO,/*编辑课程信息*/
+	EDIT_SESSION_INFO,/*编辑章节信息*/
+	CONFIRM_MODAL_STATE,/*确定弹出框*/
 } from './actiontype.jsx';
 export const getLoginData = (userData,callback) => {
 	 $.ajax({
@@ -119,7 +124,9 @@ export const setErrorMsg = (errMsg) =>{
 export const setCourseID = (courseID) =>{
 	window._STORE_.dispatch(reduceSetCourseID(courseID));
 }
-
+export const setConfirmModalState = (state) =>{
+	window._STORE_.dispatch(reduceSetConfirmModalState(state));
+} 
 /************************************************************************************************************************/
 /*提交账号密码*/
 const reduceUserType = (data) => {
@@ -185,10 +192,44 @@ const reduceUserCourseDetail = (data) =>{
 		data:data
 	}
 }
+/*获取admin全部信息*/
+const reduceAdminCourseInfo = (data) =>{
+	return{
+		type:GET_ADMIN_COURSE,
+		data:data
+	}
+}
 /*设置课程ID*/
 const reduceSetCourseID = (data) =>{
 	return{
 		type:SET_COURSE_ID,
 		data:data
 	}
+}
+/*admin获取全部教师,用于新建课程指定教师*/
+const reduceAllTeacher = (data) =>{
+	return{
+		type:GET_ALL_TEACHER,
+		data:data
+	}
+}
+/*编辑课程信息*/
+const reduceAdminEditCourseInfo = (data) =>{
+	return{
+		type:EDIT_COURSE_INFO,
+		data:data
+	}
+}
+/*编辑章节信息*/
+const reduceAdminEditSessionInfo = (data) =>{
+	return{
+		type:EDIT_SESSION_INFO,
+		data:data
+	}
+}
+const reduceSetConfirmModalState = (data) =>{
+	return{
+		type:CONFIRM_MODAL_STATE,
+		data:data
+	} 
 }
