@@ -16,6 +16,8 @@ import {
 	EDIT_COURSE_INFO,/*编辑课程信息*/
 	EDIT_SESSION_INFO,/*编辑章节信息*/
 	CONFIRM_MODAL_STATE,/*确定弹出框*/
+	GET_SELECT_COURSE_INFO,/*获取coach选课信息*/
+	GET_ADMIN_CHART_DATA,/*获取admin 分析报告*/
 } from './actiontype.jsx';
 export const getLoginData = (userData,callback) => {
 	 $.ajax({
@@ -227,9 +229,24 @@ const reduceAdminEditSessionInfo = (data) =>{
 		data:data
 	}
 }
+/*设置确定模态框状态*/
 const reduceSetConfirmModalState = (data) =>{
 	return{
 		type:CONFIRM_MODAL_STATE,
+		data:data
+	} 
+}
+/*coach获取选课信息*/
+const reduceGetSelectCourseInfo = (data) =>{
+	return{
+		type:GET_SELECT_COURSE_INFO,
+		data:data
+	} 
+}
+/*获取admin分析报告*/
+const reduceChartData = (data) =>{
+	return{
+		type:GET_ADMIN_CHART_DATA,
 		data:data
 	} 
 }

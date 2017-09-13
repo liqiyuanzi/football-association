@@ -3,7 +3,7 @@ import * as actions from 'actions/action';
 import { Router } from 'react-router'
 import { connect } from 'react-redux'
 import common from 'codes/common'
-import homeCss from 'styles/home.less'
+
 
 
 class HomeIndex extends Component {

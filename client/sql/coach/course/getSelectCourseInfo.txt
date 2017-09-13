@@ -1,0 +1,14 @@
+select
+id as courseID, 
+date_format(A.startTime,'%Y-%m-%d %H:%i:%s') as startTime,
+date_format(A.endTime,'%Y-%m-%d %H:%i:%s') as endTime,
+A.caption as caption,
+B.caption as organizationCaption
+from table_course as A
+LEFT JOIN dict_organization as B
+on A.organization = B.code
+LEFT JOIN table_user_info AS C
+on A.organization  = C.organization
+where A.isEnd = '1'
+and C.id = "{userID}"
+and (A.caption like '%{SearchText}%') 

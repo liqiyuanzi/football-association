@@ -8,7 +8,9 @@ import registerModule from './registerModule.jsx';
 import userInfo from './userInfo.jsx';
 /*课程信息模块*/
 import courseModule from './courseModule.jsx';
+/*分析报告*/
+import chartModule from './chartModule.jsx';
 const reducer = combineReducers({
-  loginModule,registerModule,userInfo,courseModule
+  loginModule,registerModule,userInfo,courseModule,chartModule
 });
 export default reducer

@@ -1,8 +1,8 @@
 ﻿import React , { Component } from 'react'
-import * as actions from '../../actions/action';
+import * as actions from 'actions/action';
 import { Router } from 'react-router'
 import { connect } from 'react-redux'
-import Pagination from "../common/pagination" 
+import Pagination from "components/common/pagination" 
 class CourseTpl extends Component {
 
 	setCourseID= (courseID) => {

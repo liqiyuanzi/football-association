@@ -14,6 +14,7 @@ import Home from "containers/home"
 /*coach用户*/
 import HomeIndex from "containers/coach/home/homeIndex"
 import CourseDetail from "containers/coach/home/courseDetail"
+import SelectCourse from "containers/coach/selectCourse/selectCourse"
 /*teacher用户*/
 /*amdin用户*/
 import AdminHomeIndex from "containers/admin/home/adminHomeIndex"
@@ -35,11 +36,15 @@ import * as actions from 'actions/action';
 const router =  <Route path="nav"  component={Nav}>
 					<IndexRedirect to="home" />
 					<Route path="home" component={Home}>
+						/*coach模块*/
 						<Route path="homeIndex" component={HomeIndex}/>
-						<Route path="adminHomeIndex" component={AdminHomeIndex}/>
-						<Route path="teacherHomeIndex" component={TeacherHomeIndex}/>
 						<Route path="courseDetail" component={CourseDetail}/>
+						/*admin模块*/
+						<Route path="adminHomeIndex" component={AdminHomeIndex}/>
+						/*teacher模块*/
+						<Route path="teacherHomeIndex" component={TeacherHomeIndex}/>						
 					</Route>
+					
 					<Route path="manage"  component={Manage}>
 						<IndexRedirect to="userInfomation" />
 						<Route path="userInfomation" component={UserInfomation}/>
@@ -48,11 +53,14 @@ const router =  <Route path="nav"  component={Nav}>
 						<Route path="accountSecurity" component={AccountSecurity}/>
 						<Route path="help" component={Help}/>
 					</Route>
+					/*amdin*/
 					<Route path="courseManagement"  component={CourseManagement}>
 						<IndexRedirect to="course" />
 						<Route path="course" component={Course}/>
 						<Route path="editCourse" component={EditCourse}/>
-					</Route>					
+					</Route>
+					/*coach*/
+					<Route path="selectCourse"  component={SelectCourse} />			
 				</Route>
 
 const autoLogin = (nextState,replace,callback) =>{

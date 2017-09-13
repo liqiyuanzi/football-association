@@ -18,6 +18,8 @@
 	EDIT_SESSION_INFO,/*编辑SESSION信息*/
 	SET_EDIT_COURSE_MODAL,/*编辑课程信息模态框显示隐藏*/
 	SET_EDIT_SESSION_MODAL,/*编辑SESSION模态框显示隐藏*/
+	GET_SELECT_COURSE_INFO,/*coach获取全部课程*/
+	SET_SHOW_COURSE_MODAL_STATE,/*coach显示隐藏查看课程模态框*/
 } from 'actions/actiontype';
 
 import common from 'codes/common';
@@ -43,6 +45,8 @@ const initState = {
 	checkClassNameState:[],
 	courseInfo:"",
 	sessionInfo:"",
+	getSelectCourseInfo:"",
+	coachGetCourseModalState:false
 };
 /*聚合coach课程信息*/
 const setCourseRelation = (data) =>{
@@ -61,6 +65,14 @@ const setAdminSessionRelation = (data) =>{
 /*获取数据*/
 const course = (state=initState,action) => {
 	switch(action.type){
+		case SET_SHOW_COURSE_MODAL_STATE:
+			return Object.assign({}, state, {
+				coachGetCourseModalState:action.data
+			});
+		case GET_SELECT_COURSE_INFO:
+			return Object.assign({}, state, {
+				getSelectCourseInfo:action.data
+			});
 		case SET_EDIT_SESSION_MODAL:
 			return Object.assign({}, state, {
 				editSessionState:action.data

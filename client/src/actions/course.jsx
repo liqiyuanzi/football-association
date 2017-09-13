@@ -2,6 +2,7 @@
 	SET_EDIT_SESSION_MODAL,/*编辑SESSION信息模态框*/
 	EDIT_COURSE_INFO,/*编辑课程信息*/
 	SET_NEW_COURSE_MODAL_STATE,/*新建培训模态框*/
+	SET_SHOW_COURSE_MODAL_STATE,/*coach显示隐藏查看课程详情模态框*/
 	SET_ORGANIZATION_CODE,/*设置机构code显示不同教师*/
 	SET_COURSE_ID,/*设置当前课程ID*/
 	ADD_COURSE_LENGTH,/*增加课程数目*/
@@ -16,6 +17,10 @@
 	CHECK_SESSION_NAME,/*校验章节名称*/
 	CHECK_CLASS_NAME,/*校验课时名称*/
 } from './actiontype.jsx';
+/*coach显示隐藏查看课程详情模态框*/
+export const setShowCourseModalState =(state) =>{
+	window._STORE_.dispatch(reduceSetShowCourseModalState(state));
+}
 /*显示编辑课程模态框*/
 export const setCourseModalState = (state) =>{
 	window._STORE_.dispatch(reduceSetEditCourseModalState(state));
@@ -154,6 +159,13 @@ const reduceSetAddCourseModalState = (data) => {
 const reduceCheckCourseNameState = (data) =>{
 	return{
 		type:CHECK_COURSE_NAME,
+		data:data
+	}
+}
+/*coach显示隐藏查看课程详情模态框*/
+const reduceSetShowCourseModalState = (data) =>{
+	return{
+		type:SET_SHOW_COURSE_MODAL_STATE,
 		data:data
 	}
 }

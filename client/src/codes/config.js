@@ -2,19 +2,19 @@
 	NavInfo:{
 		"coach":[
 			{Key:"/nav/home",Value:"首页",Font:" icon-calendar"},
-			{Key:"/nav/selectClass",Value:"选课",Font:" icon-baoxianzhushouicon23"},
+			{Key:"/nav/selectCourse",Value:"选课",Font:" icon-baoxianzhushouicon23"},
 			{Key:"/nav/myClass",Value:"我的课程",Font:" icon-jilu"},
 			{Key:"/nav/check",Value:"考核与评教",Font:" icon-icondabiaosai"},
 			{Key:"/nav/queryResults",Value:"成绩查询",Font:" icon-zhibo1"}
 		],
 		"teacher":[
 			{Key:"/nav/home",Value:"首页",Font:" icon-calendar"},
-			{Key:"/nav/selectClass",Value:"选课",Font:" icon-baoxianzhushouicon23"},
+			{Key:"/nav/selectCourse",Value:"选课",Font:" icon-baoxianzhushouicon23"},
 			{Key:"/nav/myClass",Value:"我的课程",Font:" icon-jilu"}
 		],
 		"admin":[
 			{Key:"/nav/home",Value:"首页",Font:" icon-calendar"},
-			{Key:"/nav/selectClass",Value:"教练员管理",Font:" icon-baoxianzhushouicon23"},
+			{Key:"/nav/coachManage",Value:"教练员管理",Font:" icon-baoxianzhushouicon23"},
 			{Key:"/nav/myClass",Value:"讲师管理",Font:" icon-jilu"},
 			{Key:"/nav/courseManagement",Value:"培训课程管理",Font:" icon-jilu"},
 			{Key:"/nav/myClass",Value:"资料管理",Font:" icon-jilu"},

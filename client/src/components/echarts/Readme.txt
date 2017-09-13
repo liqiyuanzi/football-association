@@ -1,0 +1,4 @@
+PieChartStandard:标准饼状图
+PieChartRing:环形饼状图
+HistogramStandard：标准柱状图
+MapStandard：标准地图

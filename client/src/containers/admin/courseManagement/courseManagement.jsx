@@ -3,7 +3,7 @@ import * as actions from 'actions/action';
 import { Router } from 'react-router'
 import { connect } from 'react-redux'
 import common from 'codes/common'
-import courseManage from 'styles/courseManage.less'
+import courseManage from 'styles/admin/courseManage.less'
 
 class CourseManagement extends Component {
 	componentWillMount = () =>{

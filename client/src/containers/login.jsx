@@ -7,10 +7,12 @@ import styles from "styles/login.less"
 class Login extends Component {
 	submitLoginForm= () => {
 		let loginPlace = "";
-		if(remote_ip_info["province"] == remote_ip_info["city"]){
+		if(remote_ip_info){
+			if(remote_ip_info["province"] == remote_ip_info["city"]){
 			loginPlace = remote_ip_info["country"] + " " + remote_ip_info["province"]
-		}else{
-			loginPlace = remote_ip_info["country"] + " " + remote_ip_info["province"] + " " + remote_ip_info["city"];
+			}else{
+				loginPlace = remote_ip_info["country"] + " " + remote_ip_info["province"] + " " + remote_ip_info["city"];
+			}	
 		}	
 		actions.getLoginData({"phoneNumber":$("#userName").val(),"password":$("#userPwd").val(),
 								'autoLogin':$("#autoLogin").is(':checked'),'loginPlace':loginPlace}, (resData) => {

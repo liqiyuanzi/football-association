@@ -53,13 +53,18 @@ export const CHECK_IDENTIFY_CODE = 'CHECK_IDENTIFY_CODE';
 export const GET_OPERATE_HISTORY = 'GET_OPERATE_HISTORY';
 /*发送邮件状态*/
 export const SEND_MAIL_STATE = 'SEND_MAIL_STATE'
-/*首页*/
+/*coach操作*/
 /*用户课程信息*/
 export const GET_USER_COURSE = 'GET_USER_COURSE'
 export const GET_USER_COURSE_DETAIL = 'GET_USER_COURSE_DETAIL'
 export const SET_COURSE_ID = 'SET_COURSE_ID'
+export const GET_SELECT_COURSE_INFO = 'GET_SELECT_COURSE_INFO'
+
 
 /*admin操作*/
+/*分析报告*/
+export const GET_ADMIN_CHART_DATA = 'GET_ADMIN_CHART_DATA'
+
 /*新建课程获取教师信息*/
 export const GET_ALL_TEACHER = 'GET_ALL_TEACHER'
 /*新建培训模态框*/
@@ -69,7 +74,6 @@ export const SET_ORGANIZATION_CODE ='SET_ORGANIZATION_CODE'
 /*新建课程设置课程数目*/
 export const ADD_CLASS_LENGTH = 'ADD_CLASS_LENGTH'
 export const DELETE_CLASS_LENGTH = 'DELETE_CLASS_LENGTH'
-
 /*设置编辑模态框显示隐藏*/
 export const SET_EDIT_COURSE_MODAL = 'SET_EDIT_COURSE_MODAL'
 /*设置新建课程模态框显示隐藏*/

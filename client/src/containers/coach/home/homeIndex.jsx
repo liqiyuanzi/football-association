@@ -3,7 +3,7 @@ import * as actions from 'actions/action';
 import { Router } from 'react-router'
 import { connect } from 'react-redux'
 import common from 'codes/common'
-import homeCss from 'styles/home.less'
+import homeCss from 'styles/coach/home.less'
 import Course from 'components/coach/tplCourse.jsx'
 import Notice from 'components/coach/tplNotice.jsx'
 import Calendar from 'components/coach/tplCalendar.jsx'

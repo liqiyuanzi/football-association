@@ -3,16 +3,6 @@
 3.git config user.email "someone@someplace.com"
 4.git add *
 5.git commit -m "some init msg"
-
-
-
-
-
-
-
-
-
-
 上传
 git clone https:
 git add . (.是当前路径下全部)
